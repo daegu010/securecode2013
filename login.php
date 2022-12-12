@@ -10,9 +10,16 @@
     else
         $pass = "";
 
+    $id = str_replace("--", "", $id);
+    $id = str_replace(" ", "", $id);
+    $id = str_replace("'", "", $id);
+    
     echo "id = $id , pass = $pass <br>";
 
     $sql = "select * from users where id='$id' and pass='$pass' ";
+    //                                    ' or 2>1 limit 1, 1 -- 
+
+    echo "sql = $sql <br>";
     $result = mysqli_query($conn, $sql);
     $data = mysqli_fetch_array($result);
     if($data)
