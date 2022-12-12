@@ -14,9 +14,23 @@
 
     $sql = "select * from users where id='$id' and pass='$pass' ";
     $result = mysqli_query($conn, $sql);
-    if($result)
-        $msg = "성공입니다.";
+    $data = mysqli_fetch_array($result);
+    if($data)
+    {
+        $_SESSION["sessid"] = $id;
+        $_SESSION["sessname"] = $data["name"];
+        $msg = $_SESSION["sessname"] . "님 반갑습니다.";
+    }        
     else
+    {
         $msg = "로그인 실패";
+    }
+    
+    echo "
+    <script>
+        alert('$msg');
+        location.href='main.php';
+    </script>
+    ";
 
 ?>
