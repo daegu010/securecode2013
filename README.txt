@@ -25,3 +25,5 @@ insert into users (id, name, pass) values ('test1', '네글자다', 'abcd');
 쿠키의 확인
 
 javascript:alert(document.cookie);
+
+Day 2
