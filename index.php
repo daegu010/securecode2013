@@ -1,3 +1,9 @@
+<?php
+    include "db.php";
+
+    $conn = connectDB();
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -14,18 +20,6 @@
 
     </head>
 <body>
-    <?php
-        $i = 3;
-        echo "i = $i <br>";
-        $i = "홍길동";
-        echo "i = $i <br>";
-
-        include "test.php";
-        echo "i = $i <br>";
-
-    ?>
-
-
     <div class="container">
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -120,10 +114,35 @@
             <div class="col bg-secondary">3</div>
             <div class="col-1 bg-warning">3</div>
         </div>
-        <div class="row">
-            2
-        </div>
+
+        <?php
+            $sql = "select * from first";
+            $result = mysqli_query($conn, $sql);
+            $data = mysqli_fetch_array($result);
+
+            while($data)
+            {
+                // 출력
+                $id = $data["id"];
+                $name = $data["name"];
+                $age = $data["age"];
+
+                ?>
+                    <div class="row">
+                        <div class="col"><?php echo $id ?></div>  
+                        <div class="col"><?php echo $name ?></div>  
+                        <div class="col"><?php echo $age ?></div>    
+                    </div>
+                <?php
+
+                $data = mysqli_fetch_array($result);
+            }
+        ?>
 
     </div>
 </body>
 </html>
+
+<?php
+    closeDB($conn);
+?>
