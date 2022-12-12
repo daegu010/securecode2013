@@ -1,4 +1,7 @@
 <?php
+    session_save_path("./sess");
+    session_start();
+
     include "db.php";
 
     $conn = connectDB();
@@ -52,6 +55,17 @@
                 </div>
             </div>
         </nav>
+        </div>
+
+        <div class="row">
+            <div class="col text-end">
+                <?php
+                    if(isset($_SESSION["sessid"]))
+                        echo $_SESSION["sessname"]."님" ."<button type='button' class='btn btn-primary btn-sm' onClick=\"location.href='main.php?cmd=logout'\">로그아웃</button> ";
+                    else
+                        echo "<button type='button' class='btn btn-primary btn-sm' onClick=\"location.href='main.php?cmd=printLogin'\"> 로그인</button>";
+                ?>
+            </div>
         </div>
 
         <?php
