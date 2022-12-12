@@ -14,6 +14,18 @@
 
     </head>
 <body>
+    <?php
+        $i = 3;
+        echo "i = $i <br>";
+        $i = "홍길동";
+        echo "i = $i <br>";
+
+        include "test.php";
+        echo "i = $i <br>";
+
+    ?>
+
+
     <div class="container">
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
