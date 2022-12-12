@@ -21,3 +21,7 @@ create table users (
 insert into users (id, name, pass) values ('test', '테스트', 'abcd');
 insert into users (id, name, pass) values ('admin', '관리자', 'abcd');
 insert into users (id, name, pass) values ('test1', '네글자다', 'abcd');
+
+쿠키의 확인
+
+javascript:alert(document.cookie);
