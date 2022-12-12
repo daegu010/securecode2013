@@ -1,3 +1,0 @@
-securecode
-
-https://github.com/eurekasolution/securecode
