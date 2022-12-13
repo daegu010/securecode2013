@@ -39,3 +39,5 @@ create table bbs (
 insert into bbs (title, name, content) 
     values ('첫번째 게시글', '홍길동', '첫번째 글입니다.');
     
+
+Day 3 
