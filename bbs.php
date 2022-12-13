@@ -4,6 +4,13 @@
     else
         $mode = $_GET["mode"];
 
+    if($mode == "view")
+    {
+        if(isset($_GET["idx"]))
+            $idx = $_GET["idx"];
+
+        echo "글보기 $idx <br>";
+    }
     if($mode == "list")
     {
         ?>
@@ -23,7 +30,7 @@
                 ?>
                 <div class="row">
                     <div class="col-1"><?php echo $data["idx"] ?></div>
-                    <div class="col-9"><?php echo $data["title"] ?></div>
+                    <div class="col-9"><a href="main.php?cmd=bbs&mode=view&idx=<?php echo $data["idx"] ?>"><?php echo $data["title"] ?></a></div>
                     <div class="col-2"><?php echo $data["name"] ?></div>
                 </div>
                 <?php
