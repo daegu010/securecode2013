@@ -39,7 +39,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="main.php?cmd=printLogin">로그인</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=printLogin">SQL 인젝션</a></li>
-                            <li><a class="dropdown-item" href="#">A third link</a></li>
+                            <li><a class="dropdown-item" href="main.php?cmd=bbs">게시판</a></li>
                         </ul>
                         </li>
 
