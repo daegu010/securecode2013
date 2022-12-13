@@ -19,6 +19,12 @@
             $data["content"] = nl2br($data["content"]);
                                 // New Line to Br tag
 
+            $data["title"] = str_replace("<", "&lt;", $data["title"]);
+            $data["title"] = str_replace(">", "&gt;", $data["title"]);
+               
+            $data["content"] = str_replace("<", "&lt;", $data["content"]);
+            $data["content"] = str_replace(">", "&gt;", $data["content"]);
+               
             ?>
             <div class="row">
                 <div class="col-2">제목</div>
@@ -65,6 +71,11 @@
 
             while($data)
             {
+                
+                $data["title"] = str_replace("<", "&lt;", $data["title"]);
+                $data["title"] = str_replace(">", "&gt;", $data["title"]);
+
+
                 ?>
                 <div class="row">
                     <div class="col-1"><?php echo $data["idx"] ?></div>
@@ -90,6 +101,12 @@
         $title = $_POST["title"];
         $name = $_POST["name"];
         $content = $_POST["content"];
+
+        $tilte = str_replace("<", "&lt;", $title);
+        $tilte = str_replace(">", "&gt;", $title);
+
+        $content = str_replace("<", "&lt;", $content);
+        $content = str_replace(">", "&gt;", $content);
 
         $sql = "insert into bbs (title, name, content) 
                     values('$title', '$name', '$content')";
