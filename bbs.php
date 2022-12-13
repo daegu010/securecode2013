@@ -9,15 +9,36 @@
         if(isset($_GET["idx"]))
             $idx = $_GET["idx"];
 
-        echo "글보기 $idx <br>";
-
+       
         $sql = "select * from bbs where idx='$idx' ";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
 
         if($data)
         {
+            $data["content"] = nl2br($data["content"]);
+                                // New Line to Br tag
 
+            ?>
+            <div class="row">
+                <div class="col-2">제목</div>
+                <div class="col"><?php echo $data["title"] ?></div>
+            </div>
+            <div class="row">
+                <div class="col-2">작성자</div>
+                <div class="col"><?php echo $data["name"] ?></div>
+            </div>
+
+            <div class="row" style="min-height:200px;">
+                <div class="col"><?php echo $data["content"] ?></div>
+            </div>
+
+            <div class="row">
+                <div class="col text-center"> 
+                    <button type="button" class="btn btn-primary btn-sm" onClick="location.href='main.php?cmd=bbs'" >목록</button>
+                </div>
+            </div>
+            <?php
         }else
         {
             ?>
