@@ -27,3 +27,15 @@ insert into users (id, name, pass) values ('test1', '네글자다', 'abcd');
 javascript:alert(document.cookie);
 
 Day 2
+
+create table bbs (
+    idx     int(10) auto_increment,
+    title   char(255),
+    name    char(20),
+    content text,
+    primary key(idx)
+);
+
+insert into bbs (title, name, content) 
+    values ('첫번째 게시글', '홍길동', '첫번째 글입니다.');
+    
