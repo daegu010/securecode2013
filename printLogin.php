@@ -5,7 +5,30 @@
             로그인</h5>
     </div>
 </div>
-<form name="loginForm" method="post" action="main.php?cmd=login">
+
+<script>
+    function checkError()
+    {
+        var regexp = /^[a-zA-Z0-9]{4,10}$/;
+        if(!regexp.test(document.loginForm.id.value))
+        {
+            alert('아이디는 영문 대소문자, 숫자로 4~10글자만 가능합니다.');
+            document.loginForm.id.focus();
+            return false;
+        }
+
+        regexp = /^[a-zA-Z0-9]{3,10}$/;
+        if(!regexp.test(document.loginForm.pass.value))
+        {
+            alert('비밀번호는 영문 대소문자, 숫자로 3~10글자만 가능합니다.');
+            document.loginForm.pass.focus();
+            return false;
+        }
+    }
+</script>
+
+
+<form name="loginForm" method="post" onSubmit="return checkError()"  action="main.php?cmd=login">
 <div class="row">
     <div class="col-2">ID </div>
     <div class="col">
