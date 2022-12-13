@@ -10,6 +10,23 @@
             $idx = $_GET["idx"];
 
         echo "글보기 $idx <br>";
+
+        $sql = "select * from bbs where idx='$idx' ";
+        $result = mysqli_query($conn, $sql);
+        $data = mysqli_fetch_array($result);
+
+        if($data)
+        {
+
+        }else
+        {
+            ?>
+                <script>
+                    alert('삭제된 글입니다.');
+                    location.href='main.php?cmd=bbs';
+                </script>
+            <?php
+        }
     }
     if($mode == "list")
     {
