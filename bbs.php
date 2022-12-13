@@ -22,9 +22,58 @@
 
         <?php
     }
+    if($mode == "dbwrite")
+    {
+        $title = $_POST["title"];
+        $name = $_POST["name"];
+        $content = $_POST["content"];
 
+        $sql = "insert into bbs (title, name, content) 
+                    values('$title', '$name', '$content')";
+        $result = mysqli_query($conn, $sql);
+
+        if($result)
+            $msg = "성공";
+        else    
+            $msg = "실패";
+
+        echo "
+        <script>
+            alert('$msg');
+            location.href='main.php?cmd=bbs';
+        </script>
+        ";
+
+    }
     if($mode == "write")
     {
-        echo "글쓰기";
+        ?>
+        <form name="bbsForm" method="POST" action="main.php?cmd=bbs&mode=dbwrite">
+        <div class="row">
+            <div class="col-2">제목</div>
+            <div class="col">
+                <input type="text" name="title" class="form-control" placeholder="제목을 입력하세요">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2">작성자</div>
+            <div class="col">
+                <input type="text" name="name" class="form-control" placeholder="작성자입력">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <textarea name="content" class="form-control" rows=10 placeholder="내용입력"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button type="submit" class="btn btn-primary btn-sm" >등록</button>
+                <button type="button" class="btn btn-primary btn-sm" onClick="location.href='main.php?cmd=bbs'" >목록</button>
+            </div>
+        </div>
+        </form>
+        <?php
     }
 ?>
