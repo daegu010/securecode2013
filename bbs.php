@@ -13,6 +13,24 @@
             <div class="col-2">작성자</div>
         </div>
 
+        <?php
+            $sql = "select * from bbs order by idx desc";
+            $result = mysqli_query($conn, $sql);
+            $data = mysqli_fetch_array($result);
+
+            while($data)
+            {
+                ?>
+                <div class="row">
+                    <div class="col-1"><?php echo $data["idx"] ?></div>
+                    <div class="col-9"><?php echo $data["title"] ?></div>
+                    <div class="col-2"><?php echo $data["name"] ?></div>
+                </div>
+                <?php
+                $data = mysqli_fetch_array($result); 
+            }
+        ?>
+
 
         <div class="row">
             <div class="col">

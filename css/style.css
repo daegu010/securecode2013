@@ -1,0 +1,16 @@
+/* style.css */
+
+body {  }  /* <body> */
+.body { } /* class="body" */
+#body { } /* id = "body" */
+
+.row { 
+    line-height:200%;
+    padding-top:4px;
+    padding-bottom:4px;
+
+    border-top:0px dotted #BBBBBB;
+    border-bottom:1px dotted #BBBBBB;
+    border-left:0px dotted #BBBBBB;
+    border-right:0px dotted #BBBBBB;
+}
