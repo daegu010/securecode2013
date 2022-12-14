@@ -6,7 +6,9 @@ body {  }  /* <body> */
 
 a:link { text-decoration:none; color:#333333; }
 a:hover { text-decoration:none; color:#0000FF; }
-a:visited { text-decoration:none; color:#333333; }
+a:visited { text-decoration:none; color:#333333;}
+
+.linkwhite { color: #FFFFFF; }
 
 .row { 
     line-height:200%;

@@ -23,6 +23,11 @@
 
     </head>
 <body>
+    <?php
+        //phpinfo();
+    ?>
+
+
     <div class="container">
         <div class="row">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -35,11 +40,12 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">SecureCode</a>
+                        <a class="nav-link dropdown-toggle linkwhite" href="#" role="button" data-bs-toggle="dropdown">SecureCode</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="main.php?cmd=printLogin">로그인</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=printLogin">SQL 인젝션</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=bbs">게시판</a></li>
+                            <li><a class="dropdown-item" href="main.php?cmd=shell">웹 쉘</a></li>
                         </ul>
                         </li>
 
