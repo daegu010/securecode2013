@@ -8,7 +8,7 @@ a:link { text-decoration:none; color:#333333; }
 a:hover { text-decoration:none; color:#0000FF; }
 a:visited { text-decoration:none; color:#333333;}
 
-.linkwhite a:link { text-decoration:none; color:#EEEEEE; }
+.linkwhite:link { text-decoration:none; color:#EEEEEE; }
 
 
 .row { 

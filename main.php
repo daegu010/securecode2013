@@ -33,7 +33,7 @@
         <div class="row">
             <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#"><span class="material-icons">home</span></a>
+                    <a class="navbar-brand linkwhite" href="main.php"><span class="material-icons text-white">home</span></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
                     </button>
@@ -53,7 +53,7 @@
                         </li>
 
                         <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">SecureCode2</a>
+                        <a class="nav-link dropdown-toggle linkwhite" href="#" role="button" data-bs-toggle="dropdown">SecureCode2</a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">무차별 대입</a></li>
                             <li><a class="dropdown-item" href="#">SQL 인젝션</a></li>
