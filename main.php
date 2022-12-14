@@ -92,6 +92,7 @@
                             <li><a class="dropdown-item" href="main.php?cmd=fake">Fake Data</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=log">최신로그</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=chart">로그차트</a></li>
+                            <li><a class="dropdown-item" href="main.php?cmd=crawling">뉴스크롤링</a></li>
                         </ul>
                         </li>
 
