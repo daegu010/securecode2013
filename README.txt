@@ -53,3 +53,6 @@ create table logs (
 
     primary key(idx)
 );
+
+
+Day 4
