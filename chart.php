@@ -7,10 +7,21 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['접속시간', '접속수'],
-          ['2004',  1000],
-          ['2005',  1170],
-          ['2006',  660],
-          ['2007',  1030]
+          <?php
+                // 2022-12-14 00:00:00 ~ 01:00:00
+                $today = Date('Y-m-d');
+                for($i=0; $i<24; $i++)
+                {
+                    //$next =$i + 1;
+                    $sql = "select * from logs 
+                                where time>='$today $i:00:00' 
+                                    and time<'$today $i:59:59' ";
+                    $result = mysqli_query($conn, $sql);
+                    $connectCount = mysqli_num_rows($result);
+
+                    echo "['$i:00', $connectCount],";
+                }
+          ?>
         ]);
 
         var options = {
@@ -26,3 +37,9 @@
     </script>
 
     <div id="secure_chart" style="width: 900px; height: 500px"></div>
+
+    <script>
+        setTimeout(function(){
+            location.href='main.php?cmd=chart';
+        }, 5000);
+    </script>
