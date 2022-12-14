@@ -41,5 +41,15 @@ insert into bbs (title, name, content)
     
 
 Day 3 
-비밀번호의 안전성 테스트
+비밀번호의 안전성 테스트 , 2022-12-14 12:34:56
 https://www.security.org/how-secure-is-my-password/
+
+create table logs (
+    idx     int(10) auto_increment,
+    ip      char(20),
+    work    char(255),
+    name    char(30),
+    time    datetime,
+
+    primary key(idx)
+);
