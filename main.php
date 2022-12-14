@@ -26,6 +26,46 @@
 <body>
     <?php
         //phpinfo();
+
+        $query = $_SERVER["QUERY_STRING"];
+        $ip = $_SERVER["REMOTE_ADDR"];
+
+        $family = "김,이,박,최,정,김,김,이,민,신,장,오,강,서,양,남궁,황보";
+        $middle = "길,영,양,은,현,선,은,정";
+        $last = "하,민,균,애,구,미,진,주,섭,성";
+    
+        $ip = $_SERVER["REMOTE_ADDR"];
+        //echo "ip = $ip<br>";
+    
+        $familys = explode(",", $family);
+        $middles = explode(",", $middle);
+        $lasts = explode(",", $last);
+
+        $rand1 = rand(0, count($familys)-1);
+        $rand2 = rand(0, count($middles)-1);
+        $rand3 = rand(0, count($lasts)-1);
+        $name = $familys[$rand1] . $middles[$rand2] . $lasts[$rand3];
+
+        $ip1 = rand(1,254);
+        $ip2 = rand(1,254);
+        $ip3 = rand(1,254);
+        $ip4 = rand(1,254);
+
+        $ip = "$ip1.$ip2.$ip3.$ip4";
+
+        if(isset($cmd) and $cmd == "chart")
+        {
+
+        }else
+        {
+            //echo "query : $query<br>";
+            $sql = "INSERT INTO logs (ip, name, work, time) 
+            values('$ip', '$name', '$query', now() ) ";
+            $result = mysqli_query($conn, $sql);
+        }
+        
+
+
     ?>
 
 
@@ -50,6 +90,8 @@
                             <li><a class="dropdown-item" href="main.php?cmd=brute">Brute Force</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=brute2">Brute Force2</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=fake">Fake Data</a></li>
+                            <li><a class="dropdown-item" href="main.php?cmd=log">최신로그</a></li>
+                            <li><a class="dropdown-item" href="main.php?cmd=chart">로그차트</a></li>
                         </ul>
                         </li>
 
