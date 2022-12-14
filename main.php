@@ -49,6 +49,7 @@
                             <li><a class="dropdown-item" href="main.php?cmd=shell">웹 쉘</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=brute">Brute Force</a></li>
                             <li><a class="dropdown-item" href="main.php?cmd=brute2">Brute Force2</a></li>
+                            <li><a class="dropdown-item" href="main.php?cmd=fake">Fake Data</a></li>
                         </ul>
                         </li>
 
