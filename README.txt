@@ -41,3 +41,5 @@ insert into bbs (title, name, content)
     
 
 Day 3 
+비밀번호의 안전성 테스트
+https://www.security.org/how-secure-is-my-password/
