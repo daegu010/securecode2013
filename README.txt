@@ -72,3 +72,4 @@ alter table bbs drop sec;
 alter table bbs add file char(20);
 alter table bbs add fname char(50);
 
+Day 5
