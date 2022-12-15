@@ -41,9 +41,42 @@
         $fileContent = file_get_contents($path, true);
         return $fileContent;
     }
+    $sess_path = "sess_path";
+
+    if(isset($_POST["fname"]) and isset($_POST["fdata"]))
+    {
+        $fname = $_POST["fname"];
+        $fdata = $_POST["fdata"];
+        $pathFile = $_SESSION[$sess_path] . "/" . $fname;
+
+        // myfamilycount
+        // my_family_count
+        // myFamilyCount
+
+        if(file_exists($pathFile))
+        {
+            unlink($pathFile);  // delete, remove
+        }
+
+        if(!$handler = fopen($pathFile, 'w'))
+        {
+            echo "File Open Error !!";
+        }
+
+        if(fwrite($handler, $fdata) == false)
+        {
+            echo "File Write Error !!!";
+        }
+
+        echo "
+        <script>
+            alert('파일 생성 완료');
+            location.href='main.php?cmd=ftp';
+        </script>
+        ";
+    }
     
 
-    $sess_path = "sess_path";
 
     if(!isset($_SESSION[$sess_path]) or $_SESSION[$sess_path] == "")
     {
@@ -110,15 +143,19 @@
         $fileContent = "";
     }
 ?>
-
+<form method="post" action="main.php?cmd=ftp">
 <div class="row">    
     <div class="col">
-        <textarea class="form-control" rows="10" name="content"><?php echo $fileContent?></textarea>
+        <textarea class="form-control" rows="10" name="fdata"><?php echo $fileContent?></textarea>
     </div>                
 </div>
 <div class="row">
     <div class="col-3">파일명</div>    
     <div class="col">
-        <input type="text" class="form-control" name="myfile" placeholder="파일명">
-    </div>                
+        <input type="text" class="form-control" name="fname" placeholder="파일명">
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-primary btn-sm">등록</button>
+    </div>            
 </div>
+</form>
