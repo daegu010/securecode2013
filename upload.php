@@ -9,6 +9,17 @@
         chmod("data/$fname", 0777);
 
         echo "<a href='data/$fname'>$fname</a><br>";
+        echo "
+        <div class='row'>
+            <div class='col-1'><img class='img-fluid' src='data/$fname'></div>
+            <div class='col-2'><img class='img-fluid' src='data/$fname'></div>
+            <div class='col-3'><img class='img-fluid' src='data/$fname'></div>
+            
+            <div class='col-1'><img class='img-fluid rounded' src='data/$fname'></div>
+            <div class='col-2'><img class='img-fluid circle' src='data/$fname'></div>
+            <div class='col-3'><img class='img-fluid' src='data/$fname'></div>
+        </div>
+        ";
         echo "<img src='data/$fname'>";
     }
 ?>
