@@ -56,3 +56,19 @@ create table logs (
 
 
 Day 4
+
+create table bbs (
+    idx     int(10) auto_increment,
+    title   char(255),
+    name    char(20),
+    content text,
+    primary key(idx)
+);
+
+alter table bbs add test char(20) after title;
+alter table bbs change test  sec char(10);
+alter table bbs drop sec;
+
+alter table bbs add file char(20);
+alter table bbs add fname char(50);
+

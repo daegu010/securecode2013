@@ -2,6 +2,8 @@
     session_save_path("./sess");
     session_start();
 
+    date_default_timezone_set("Asia/Seoul");
+
     include "db.php";
     include "config.php";
 
@@ -103,6 +105,7 @@
                             <li><li><a class="dropdown-item" href="main.php?cmd=brute3">Brute (암호화)</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=upload">UPLOAD</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=ftp">FTP</a></li>
+                            <li><li><a class="dropdown-item" href="main.php?cmd=bbs2">게시판2</a></li>
                             
                         </ul>
                         </li>        
