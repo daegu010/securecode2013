@@ -36,7 +36,7 @@
             $idx = $_GET["idx"];
 
        
-        $sql = "select * from bbs2 where idx='$idx' ";
+        $sql = "select * from bbs where idx='$idx' ";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
 
@@ -62,7 +62,23 @@
             </div>
 
             <div class="row" style="min-height:200px;">
-                <div class="col"><?php echo $data["content"] ?></div>
+                <div class="col"><?php echo $data["content"] ?><br>
+                    <?php
+                        if($data["file"])
+                        {
+                            $ext = getFileExt($data["file"]);
+                            if($ext == "jpg" or $ext == "jpeg" or $ext == "png")
+                            {
+                                echo "<img src='data/$data[file]' class='img-fluid rounded'>";
+                            }
+                        }
+                    ?>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-2">첨부</div>
+                <div class="col">월드컵.jpg</div>
             </div>
 
             <div class="row">
