@@ -101,8 +101,8 @@
                         <a class="nav-link dropdown-toggle linkwhite" href="#" role="button" data-bs-toggle="dropdown">SecureCode2</a>
                         <ul class="dropdown-menu">
                             <li><li><a class="dropdown-item" href="main.php?cmd=brute3">Brute (암호화)</a></li>
-                            <li><a class="dropdown-item" href="#">SQL 인젝션</a></li>
-                            <li><a class="dropdown-item" href="#">A third link</a></li>
+                            <li><li><a class="dropdown-item" href="main.php?cmd=upload">UPLOAD</a></li>
+                            
                         </ul>
                         </li>        
                     </ul>
