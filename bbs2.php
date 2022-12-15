@@ -78,7 +78,14 @@
 
             <div class="row">
                 <div class="col-2">첨부</div>
-                <div class="col">월드컵.jpg</div>
+                <div class="col">
+                    <?php
+                        if($data["file"])
+                        {
+                            echo "<a href='download.php?idx=$data[idx]'>$data[fname]</a>";
+                        }
+                    ?>
+                </div>
             </div>
 
             <div class="row">
