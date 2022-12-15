@@ -7,7 +7,8 @@
 
         move_uploaded_file($_FILES["upfile"]["tmp_name"], "data/$fname");
         chmod("data/$fname", 0777);
-
+        // 월드컵.jpg
+        //  20221215123456.jpg 월드컵.jpg
         echo "<a href='data/$fname'>$fname</a><br>";
         echo "
         <div class='row'>
@@ -16,7 +17,7 @@
             <div class='col-3'><img class='img-fluid' src='data/$fname'></div>
             
             <div class='col-1'><img class='img-fluid rounded' src='data/$fname'></div>
-            <div class='col-2'><img class='img-fluid circle' src='data/$fname'></div>
+            <div class='col-2'><img class='img-fluid rounded-circle' src='data/$fname'></div>
             <div class='col-3'><img class='img-fluid' src='data/$fname'></div>
         </div>
         ";

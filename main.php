@@ -102,6 +102,7 @@
                         <ul class="dropdown-menu">
                             <li><li><a class="dropdown-item" href="main.php?cmd=brute3">Brute (암호화)</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=upload">UPLOAD</a></li>
+                            <li><li><a class="dropdown-item" href="main.php?cmd=ftp">FTP</a></li>
                             
                         </ul>
                         </li>        
