@@ -31,6 +31,16 @@
         return $files;
     }
 
+    function readFileSecure($path)
+    {
+        if(!$handler = fopen($path, 'r'))
+        {
+            return "File Open Error !!!";
+        }
+
+        $fileContent = file_get_contents($path, true);
+        return $fileContent;
+    }
     
 
     $sess_path = "sess_path";
@@ -77,9 +87,10 @@
                 $cnt = 0;
                 while(isset($files[$cnt]))
                 {
+                    $currentFile = $files[$cnt];
                     echo "
                     <tr>
-                        <td >$files[$cnt]</td>
+                        <td ><a href='main.php?cmd=ftp&pfile=$currentFile'>$files[$cnt]</a></td>
                     </tr>
                     ";
                     $cnt ++;
@@ -89,9 +100,20 @@
     
     </div>
 </div>
+
+<?php
+    if(isset($_GET["pfile"]))
+    {
+        $fileContent = readFileSecure($_SESSION[$sess_path] . "/" . $_GET["pfile"]);
+    }else
+    {
+        $fileContent = "";
+    }
+?>
+
 <div class="row">    
     <div class="col">
-        <textarea class="form-control" rows="10" name="content"></textarea>
+        <textarea class="form-control" rows="10" name="content"><?php echo $fileContent?></textarea>
     </div>                
 </div>
 <div class="row">
