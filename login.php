@@ -16,6 +16,7 @@
     
     echo "id = $id , pass = $pass <br>";
 
+    // pw = $pw_prefix$pass
     $sql = "select * from users where id='$id' and pass='$pass' ";
     //                                    ' or 2>1 limit 1, 1 -- 
 

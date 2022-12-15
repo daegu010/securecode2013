@@ -3,6 +3,7 @@
     session_start();
 
     include "db.php";
+    include "config.php";
 
     $conn = connectDB();
 ?>
@@ -11,7 +12,7 @@
 <html>
     <head>
         <meta charset="utf8mb4">
-        <title>🐱‍🚀💋시큐어 코딩💖😢</title>
+        <title><?php echo $site_title ?></title>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -99,7 +100,7 @@
                         <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle linkwhite" href="#" role="button" data-bs-toggle="dropdown">SecureCode2</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">무차별 대입</a></li>
+                            <li><li><a class="dropdown-item" href="main.php?cmd=brute3">Brute (암호화)</a></li>
                             <li><a class="dropdown-item" href="#">SQL 인젝션</a></li>
                             <li><a class="dropdown-item" href="#">A third link</a></li>
                         </ul>
