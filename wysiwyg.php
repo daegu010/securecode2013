@@ -142,10 +142,33 @@
             </div>
         </div>
 
+        <script>
+            function setCommand(command)
+            {
+                alert(command);
+                var editor = document.getElementById('editor');
+                var content = document.getElementById('content');
+
+                document.execCommand(command);
+                content.innerHTML = editor.innerHTML;
+            }
+
+            function setHtml()
+            {
+                var editor = document.getElementById('editor');
+                var command = document.getElementById('content');
+
+                //editor.innerHTML = conten
+            }
+        </script>
+
         <div class="row">
             <div class="col">
-                <button type="button" class="btn btn-primary btn-sm" onClick="setComman('bold')">
+                <button type="button" class="btn btn-primary btn-sm" onClick="setCommand('bold')">
                     <span class="material-icons">format_bold</span>
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" onClick="setCommand('underline')">
+                    <span class="material-icons">format_underline</span>
                 </button>
             </div>
         </div>
@@ -157,7 +180,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <textarea name="content" class="form-control" rows=10 placeholder="내용입력"></textarea>
+                <textarea name="content" id="content" class="form-control" rows=10 placeholder="내용입력"></textarea>
             </div>
         </div>
         <div class="row">
