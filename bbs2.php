@@ -86,7 +86,8 @@
         ?>
         <div class="row">
             <div class="col-1">순서</div>
-            <div class="col-9">제목</div>
+            <div class="col-8">제목</div>
+            <div class="col-1">첨부</div>
             <div class="col-2">작성자</div>
         </div>
 
@@ -100,12 +101,26 @@
                 
                 $data["title"] = str_replace("<", "&lt;", $data["title"]);
                 $data["title"] = str_replace(">", "&gt;", $data["title"]);
+                $file = $data["file"];
+
+                if($file)
+                {
+                    $ext = getFileExt($file);
+                    if($ext == "jpg" or $ext == "png")
+                        $mark = "<span class='material-icons'>photo</span>";
+                    else
+                    $mark = "<span class='material-icons'>attach_file</span>";
+                }
+                    
+                else
+                    $mark = "";
 
 
                 ?>
                 <div class="row">
                     <div class="col-1"><?php echo $data["idx"] ?></div>
-                    <div class="col-9"><a href="main.php?cmd=bbs2&mode=view&idx=<?php echo $data["idx"] ?>"><?php echo $data["title"] ?></a></div>
+                    <div class="col-8"><a href="main.php?cmd=bbs2&mode=view&idx=<?php echo $data["idx"] ?>"><?php echo $data["title"] ?></a></div>
+                    <div class="col-1"><?php echo $mark ?></div>
                     <div class="col-2"><?php echo $data["name"] ?></div>
                 </div>
                 <?php
