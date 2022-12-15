@@ -106,6 +106,7 @@
                             <li><li><a class="dropdown-item" href="main.php?cmd=upload">UPLOAD</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=ftp">FTP</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=bbs2">게시판2</a></li>
+                            <li><li><a class="dropdown-item" href="main.php?cmd=wysiwyg">WYSIWYG</a></li>
                             
                         </ul>
                         </li>        

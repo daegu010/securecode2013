@@ -177,13 +177,22 @@
             $fname = $_FILES["upfile"]["name"];
             $ext = getFileExt($fname);
             $now = getNow();
+
+            if($ext =="jpg" or $ext =="jpeg" or $ext == "txt")
+            {
+                $file = "$now.$ext";
+                echo "name = " . $_FILES["upfile"]["name"]  . "<br>";
+                echo "size = " . $_FILES["upfile"]["size"]  . "<br>";
+        
+                move_uploaded_file($_FILES["upfile"]["tmp_name"], "data/$file");
+                chmod("data/$file", 0777);
+            }else
+            {
+                $file = "";
+                $fname = "";
+            }
             
-            $file = "$now.$ext";
-            echo "name = " . $_FILES["upfile"]["name"]  . "<br>";
-            echo "size = " . $_FILES["upfile"]["size"]  . "<br>";
-    
-            move_uploaded_file($_FILES["upfile"]["tmp_name"], "data/$file");
-            chmod("data/$file", 0777);
+            
         }else
         {
             $file = "";
@@ -232,10 +241,27 @@
             </div>
         </div>
 
+        <script>
+            function checkFile(obj)
+            {
+                var ext = obj.value.split(".").pop().toLowerCase();
+                //alert(ext);
+
+                if($.inArray(ext, ['jpg', 'jpeg', 'png', 'txt', 'pdf']) == -1)
+                {
+                   alert(ext + ' 파일은 업로드 불가');
+                   obj.value = "";
+                   return;
+                }
+
+                alert('업로드 가능 파일');
+            }
+        </script>
+
         <div class="row">
             <div class="col-2">첨부</div>
             <div class="col">
-                <input type="file" name="upfile"  class="form-control" >
+                <input type="file" accept="image/*"  onChange="checkFile(this)"  name="upfile"  class="form-control" >
             </div>
         </div>
 
