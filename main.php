@@ -115,10 +115,12 @@
                 if(getCookieOld('secureid'))
                 {
                     var thisid = getCookieOld('secureid');
+                    document.querySelector('#secureid').value = thisid;
                 }
                 if(getCookieOld('securepass'))
                 {
                     var thispss = getCookieOld('securepass');
+                    document.querySelector('#securepass').value = thispass;
                 }
             }
 
