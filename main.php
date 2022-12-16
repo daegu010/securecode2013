@@ -187,6 +187,7 @@
                             <li><li><a class="dropdown-item" href="main.php?cmd=bbs2">게시판2</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=wysiwyg">WYSIWYG</a></li>
                             <li><li><a class="dropdown-item" href="main.php?cmd=sms">SMS</a></li>
+                            <li><li><a class="dropdown-item" href="main.php?cmd=iot">IoT</a></li>
                             
                         </ul>
                         </li>        

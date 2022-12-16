@@ -73,3 +73,11 @@ alter table bbs add file char(20);
 alter table bbs add fname char(50);
 
 Day 5
+
+create table iot (
+    idx int(10) auto_increment,
+    temp    float  default '0.0',
+    hum     float  default '0.0',
+    time    datetime,
+    primary key(idx)
+);
