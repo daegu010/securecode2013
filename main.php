@@ -54,7 +54,7 @@
         $ip3 = rand(1,254);
         $ip4 = rand(1,254);
 
-        $ip = "$ip1.$ip2.$ip3.$ip4";
+        //$ip = "$ip1.$ip2.$ip3.$ip4";
 
         if(isset($cmd) and $cmd == "chart")
         {
@@ -67,6 +67,23 @@
             $result = mysqli_query($conn, $sql);
         }
         
+        $sql = "select * from logs 
+                    where ip='$ip' and 
+                        time>= adddate(now(), interval -10 second)";
+        $result = mysqli_query($conn, $sql);
+        $connectCount = mysqli_num_rows($result);
+
+        echo "connect Count = $connectCount<br>";
+
+        if(isset($_GET["from"]) and $_GET["from"] == "sms")
+        {
+
+        }
+        else if($connectCount >5  )
+        {
+            $smsMsg = "불법적인 접속이 감지되었습니다.";
+            include "sendSMS.php";
+        }
 
 
     ?>

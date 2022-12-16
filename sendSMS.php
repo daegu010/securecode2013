@@ -7,7 +7,16 @@
     $sms['secure'] = base64_encode("$smsAuthKey") ;//인증키
     $sms['msg'] = base64_encode(stripslashes($smsMsg));
 
-    $sms['rphone'] = base64_encode($_POST['rphone']);// 010-1111-2222
+    if(isset($_POST["rphone"]))
+    {
+        $sms['rphone'] = base64_encode($_POST['rphone']);// 010-1111-2222
+    }else
+    {
+        // auto
+        $sms['rphone'] = base64_encode("$adminPhone");// 관리자전화번호010-1111-2222
+    }
+
+    
     $sms['sphone1'] = base64_encode($phone1);
     $sms['sphone2'] = base64_encode($phone2);
     $sms['sphone3'] = base64_encode($phone3);
@@ -30,7 +39,7 @@
     $sms['testflag'] = base64_encode($_POST['testflag']);
     $sms['destination'] = strtr(base64_encode($_POST['destination']), '+/=', '-,');
     $returnurl = $_POST['returnurl'];
-    $returnrul = "http://localhost/securecode/main.php";
+    $returnrul = "http://localhost/securecode/main.php?from=sms";
 
     if(!isset($_POST['repeatFlag']))
         $_POST['repeatFlag'] = "";    
@@ -52,7 +61,7 @@
 
     $host_info = explode("/", $sms_url);
     $host = $host_info[2];
-    $path = $host_info[3]."/".$host_info[4];
+    $path = $host_info[3];
 
     srand((double)microtime()*1000000);
     $boundary = "---------------------".substr(md5(rand(0,32000)),0,10);
@@ -64,6 +73,7 @@
     $header .= "Content-type: multipart/form-data, boundary=".$boundary."\r\n";
 
     // 본문 생성
+    $data = "";
     foreach($sms AS $index => $value){
         $data .="--$boundary\r\n";
         $data .= "Content-Disposition: form-data; name=\"".$index."\"\r\n";
@@ -110,13 +120,14 @@
     else {
         $alert = "Connection Failed";
     }
-
+/*
     if($nointeractive=="1" && ($Result!="success" && $Result!="Test Success!" && $Result!="reserved") ) {
         echo "<script>alert('".$alert ."')</script>";
     }
     else if($nointeractive!="1") {
         echo "<script>alert('".$alert ."')</script>";
     }
+    */
     echo "<script>location.href='".$returnurl."';</script>";
 
 ?>
