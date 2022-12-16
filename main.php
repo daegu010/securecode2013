@@ -57,7 +57,7 @@
         $ip3 = rand(1,254);
         $ip4 = rand(1,254);
 
-        //$ip = "$ip1.$ip2.$ip3.$ip4";
+        $ip = "$ip1.$ip2.$ip3.$ip4";
 
         if(isset($cmd) and $cmd == "chart")
         {
