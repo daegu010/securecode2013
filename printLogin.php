@@ -33,27 +33,20 @@
         let idsave = $('#idsave').is(':checked');
         let passsave = $('#passsave').is(':checked');
         // let idsave = document.getElementById('idsave').checked
-      
         if(idsave == true)
         {
-            alert('1');
             setCookie('secureid', secureid, 31);
         }else
         {
-            alert('2');
             setCookie('secureid', secureid, 0);
         }
-
         if(passsave == true)
         {
-            alert('3');
             setCookie('securepass', securepass, 31);
         }else
         {
-            alert('4');
             setCookie('securepass', securepass, 0);
         }
-
     }
 </script>
 

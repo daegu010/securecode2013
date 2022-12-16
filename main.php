@@ -108,30 +108,32 @@
                     return ret;
                 }
             }
-
-            function getCookieIfSaveOld()
+        }
+        function getCookieIfSaveOld()
+        {
+            // secureid, securepass
+            if(getCookieOld('secureid'))
             {
-                // secureid, securepass
-                if(getCookieOld('secureid'))
-                {
-                    var thisid = getCookieOld('secureid');
-                    document.querySelector('#secureid').value = thisid;
-                }
-                if(getCookieOld('securepass'))
-                {
-                    var thispss = getCookieOld('securepass');
-                    document.querySelector('#securepass').value = thispass;
-                }
+                var thisid = getCookieOld('secureid');
+                document.querySelector('#secureid').value = thisid;
             }
-
-            function setCookie(name, value, expiredays)
+            if(getCookieOld('securepass'))
             {
-                var todayDate = new Date();
-                todayDate.setDate(todayDate.getDate() + expiredays);
-
-                document.cookie = name + '='  + value + ';path=/;expires='+todayDate.toGTString() + ';';
+                var thispss = getCookieOld('securepass');
+                document.querySelector('#securepass').value = thispass;
             }
         }
+
+        function setCookie(name, value, expiredays)
+        {
+            //alert('name = ' + name + ', value = ' + value + ', ed =' + expiredays)
+            var todayDate = new Date();
+            todayDate.setDate(todayDate.getDate() + expiredays );
+
+            document.cookie = name + '=' + value + ';path=/; expires=' + todayDate.toGMTString() + ';';
+            //alert(document.cookie);
+        }
+
     </script>
 
     <div class="container">
