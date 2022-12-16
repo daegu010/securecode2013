@@ -104,7 +104,7 @@
                         end = document.cookie.length;
                     
                     var ret =unescape(document.cookie.substring(offset, end));
-                    alert(ret);
+                    //alert(ret);
                     return ret;
                 }
             }
@@ -119,7 +119,7 @@
             }
             if(getCookieOld('securepass'))
             {
-                var thispss = getCookieOld('securepass');
+                var thispass = getCookieOld('securepass');
                 document.querySelector('#securepass').value = thispass;
             }
         }
