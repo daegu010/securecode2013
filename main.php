@@ -82,7 +82,7 @@
         else if($connectCount >5  )
         {
             $smsMsg = "불법적인 접속이 감지되었습니다.";
-            include "sendSMS.php";
+            //include "sendSMS.php";
         }
 
 
