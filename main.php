@@ -29,6 +29,9 @@
 <body>
     <?php
         //phpinfo();
+        $a = md5("test");
+        $b = md5("1112");
+        echo "a = $a<br>b = $b<br>";
 
         $query = $_SERVER["QUERY_STRING"];
         $ip = $_SERVER["REMOTE_ADDR"];
@@ -115,12 +118,18 @@
             if(getCookieOld('secureid'))
             {
                 var thisid = getCookieOld('secureid');
-                document.querySelector('#secureid').value = thisid;
+                var decrypto = CryptoJS.enc.Base64.parse(thisid);
+
+                document.querySelector('#secureid').value = decrypto.toString(CryptoJS.enc.Utf8);
+                document.querySelector('#idsave').checked = true;   
             }
             if(getCookieOld('securepass'))
             {
                 var thispass = getCookieOld('securepass');
-                document.querySelector('#securepass').value = thispass;
+                var decrypto = CryptoJS.enc.Base64.parse(thispass);
+
+                document.querySelector('#securepass').value = decrypto.toString(CryptoJS.enc.Utf8);
+                document.querySelector('#passsave').checked = true;  
             }
         }
 
@@ -130,7 +139,13 @@
             var todayDate = new Date();
             todayDate.setDate(todayDate.getDate() + expiredays );
 
-            document.cookie = name + '=' + value + ';path=/; expires=' + todayDate.toGMTString() + ';';
+            var key = CryptoJS.enc.Utf8.parse(value);
+            let base64 = CryptoJS.enc.Base64.stringify(key);
+
+            //document.cookie = name + '=' + value + ';path=/; expires=' + todayDate.toGMTString() + ';';
+            document.cookie = name + '=' + base64 + ';path=/; expires=' + todayDate.toGMTString() + ';';
+            
+            
             //alert(document.cookie);
         }
 
