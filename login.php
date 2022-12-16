@@ -1,12 +1,12 @@
 로그인 실행
 <?php
-    if(isset($_POST["id"]) and $_POST["id"])
-        $id = $_POST["id"];
+    if(isset($_POST["secureid"]) and $_POST["secureid"])
+        $id = $_POST["secureid"];
     else
         $id = "";
 
-    if(isset($_POST["pass"]) and $_POST["pass"])
-        $pass = $_POST["pass"];
+    if(isset($_POST["securepass"]) and $_POST["securepass"])
+        $pass = $_POST["securepass"];
     else
         $pass = "";
 
