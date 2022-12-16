@@ -31,14 +31,20 @@
 <form name="loginForm" method="post" onSubmit="return checkError()"  action="main.php?cmd=login">
 <div class="row">
     <div class="col-2">ID </div>
+    <div class="col-1">
+        <input type="checkbox" name="idsave" id="idsave">
+    </div>
     <div class="col">
-        <input type="text" class="form-control" name="id" placeholder="아이디 입력">
+        <input type="text" class="form-control" name="secureid" placeholder="아이디 입력">
     </div>
 </div>
 <div class="row">
     <div class="col-2">비밀번호 </div>
+    <div class="col-1">
+        <input type="checkbox" name="passsave" id="passsave">
+    </div>
     <div class="col">
-        <input type="password" class="form-control" name="pass" placeholder="비밀번호 입력">
+        <input type="password" class="form-control" name="securepass" placeholder="비밀번호 입력">
     </div>
 </div>
 <div class="row">

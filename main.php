@@ -87,7 +87,50 @@
 
 
     ?>
+    <script>
+        function getCookieOld(name)  // secureid, securepass
+        {
+            var search = name + '=';
+            if(document.cookie.length >0)   // javascript:alert(document.cookie);
+            {
+                offset = document.cookie.indexOf(search);
 
+                if(offset != -1)
+                {
+                    offset += search.length;
+                    end = document.cookie.indexOf(';', offset);
+
+                    if(end == -1)
+                        end = document.cookie.length;
+                    
+                    var ret =unescape(document.cookie.substring(offset, end));
+                    alert(ret);
+                    return ret;
+                }
+            }
+
+            function getCookieIfSaveOld()
+            {
+                // secureid, securepass
+                if(getCookieOld('secureid'))
+                {
+                    var thisid = getCookieOld('secureid');
+                }
+                if(getCookieOld('securepass'))
+                {
+                    var thispss = getCookieOld('securepass');
+                }
+            }
+
+            function setCookie(name, value, expiredays)
+            {
+                var todayDate = new Date();
+                todayDate.setDate(todayDate.getDate() + expiredays);
+
+                document.cookie = name + '='  + value + ';path=/;expires='+todayDate.toGTString() + ';';
+            }
+        }
+    </script>
 
     <div class="container">
         <div class="row">
